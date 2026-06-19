@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yahtzee</title>
+  <meta name="description" content="A clean, accessible single-page Yahtzee game." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1 class="logo">YAHTZEE</h1>
+      <div class="topbar-right">
+        <p class="grand-total" aria-live="polite">
+          Total <span id="grand-total">0</span>
+        </p>
+        <button id="new-game" class="btn btn-ghost" type="button">New Game</button>
+      </div>
+    </header>
+
+    <section class="play" aria-label="Dice area">
+      <div class="dice-tray" id="dice-tray" role="group" aria-label="Five dice. Click a die to hold it between rolls.">
+        <!-- dice injected by JS -->
+      </div>
+
+      <div class="roll-controls">
+        <button id="roll-btn" class="btn btn-primary" type="button">
+          Roll Dice
+        </button>
+        <p class="rolls-left" aria-live="polite">
+          Rolls left: <strong id="rolls-left">3</strong>
+        </p>
+        <p class="hint" id="hint">Roll to start your turn. Click dice to hold them.</p>
+      </div>
+    </section>
+
+    <section class="scorecard" aria-label="Scorecard">
+      <div class="score-section">
+        <h2 class="section-title">Upper Section</h2>
+        <ul class="score-list" id="upper-list"></ul>
+        <div class="subtotal-row">
+          <span>Bonus <small>(63+ scores 35)</small></span>
+          <span id="upper-bonus">0</span>
+        </div>
+        <div class="subtotal-row">
+          <span>Upper Total</span>
+          <span id="upper-total">0</span>
+        </div>
+      </div>
+
+      <div class="score-section">
+        <h2 class="section-title">Lower Section</h2>
+        <ul class="score-list" id="lower-list"></ul>
+        <div class="subtotal-row">
+          <span>Yahtzee Bonus <small>(+100 each)</small></span>
+          <span id="yahtzee-bonus">0</span>
+        </div>
+        <div class="subtotal-row">
+          <span>Lower Total</span>
+          <span id="lower-total">0</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="gameover" id="gameover" hidden>
+      <div class="gameover-card" role="dialog" aria-modal="true" aria-labelledby="go-title">
+        <h2 id="go-title">Game Over</h2>
+        <p class="final-score">Final score: <strong id="final-score">0</strong></p>
+        <p id="final-msg" class="final-msg"></p>
+        <button id="play-again" class="btn btn-primary" type="button">Play Again</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
