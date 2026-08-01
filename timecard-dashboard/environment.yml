@@ -1,0 +1,10 @@
+# Streamlit in Snowflake resolves packages from the Snowflake Anaconda channel.
+# Keep this list minimal and unpinned: SiS pins the Streamlit and Python
+# versions itself, and over-constraining here is the usual cause of an app that
+# builds locally but fails to start in Snowflake.
+name: sf_env
+channels:
+  - snowflake
+dependencies:
+  - pandas
+  - plotly
